@@ -54,6 +54,8 @@ app.post("/email-webhook", async (req, res) => {
       req.body.data?.sender ||
       req.body.from;
 
+    const isValid=req.body.isValid;
+
     console.log("📌 Extracted:");
     console.log("Subject:", subject);
     console.log("Body:", body);
@@ -74,7 +76,7 @@ app.post("/email-webhook", async (req, res) => {
 
     console.log("🔍 Is Placement:", isPlacement);
 
-    if (!isPlacement) {
+    if (!isValid) {
       console.log("❌ Not a placement email");
       return res.json({ message: "Not placement" });
     }
