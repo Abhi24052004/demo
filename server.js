@@ -72,7 +72,7 @@ app.post("/email-webhook", async (req, res) => {
 
     console.log("Is Placement:", isPlacement);
 
-    if (isValid=="No || isValid=="NO") {
+    if (isValid=="No" || isValid=="NO") {
       return res.json({ message: "Not placement" });
     }
 
